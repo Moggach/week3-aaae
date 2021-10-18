@@ -11,19 +11,20 @@ function get(request, response) {
       .then((posts) => {
         const postList = posts
           .map((post, index, posts) => {
-            return /*html*/ `<li>${post.text_content}</li>
+            return /*html*/ `<li class="post-it">📌 ${post.text_content}
         <form action="/posts" method="POST"><button name="id" value="${
           post.id
         }" aria-label="Delete post ${index + 1} of ${posts.length}">
           Delete
-        </button></form>
+        </button></form></li>
      `;
           })
           .join('');
+
         return postList;
       })
       .then((postList) => {
-        const html = /*html*/ `<ul>${postList}</ul><form action="/log-out" method="post"><button>logout</button></form>`;
+        const html = /*html*/ `<ul class="post-its-container center">${postList}</ul><form action="/log-out" method="post"><button>logout</button></form>`;
         return html;
       })
       .then((html) => response.send(layout('Posts', html)));
@@ -45,6 +46,11 @@ function post(request, response) {
   } else {
     response.redirect('/');
   }
+}
+
+function generateRandomColor() {
+  let randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+  return randomColor;
 }
 
 module.exports = { get, post };

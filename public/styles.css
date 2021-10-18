@@ -18,6 +18,11 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+li {
+  list-style-type: none;
+}
+
 img {
   width: 90px;
   height: 90px;
@@ -168,4 +173,41 @@ input {
 
 .justify-space-between {
   justify-content: space-between;
+}
+
+/* ------------------------------------------------ POSTS */
+.post-its-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 80vw;
+  margin: 0 auto;
+  min-height: 80vh;
+  background: url(./images/corkboardbackground.png);
+  background-size: 100%;
+  padding: 3rem;
+}
+
+.post-it:nth-child(1n) {
+  background: #ffdf46;
+}
+
+.post-it:nth-child(2n) {
+  background: #46c2ff;
+}
+
+.post-it:nth-child(3n) {
+  background: #66ff99;
+}
+
+.post-it {
+  margin-top: 1rem;
+  margin-right: 1rem;
+  list-style-type: none;
+  height: 10rem;
+  width: 30%;
+  padding: 1rem;
+  border-radius: 5%;
+  display: grid;
+  place-content: center;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
